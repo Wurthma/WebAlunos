@@ -1,0 +1,132 @@
+@model WebAlunos.Models.AlunoModel
+
+@{
+    ViewData["Title"] = "Cadastro de alunos";
+}
+
+<div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="~/images/bootstrap-logo.svg" alt="" width="72" height="57">
+      <h2>Cadastro de alunos</h2>
+      <p class="lead">Formulário para cadastro de alunos.</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-12">
+        <h4 class="mb-3">Dados pessoais</h4>
+        <form asp-controller="Aluno" asp-action="CadastroAluno" method="POST" id="formCadastro" class="needs-validation" novalidate="">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Primeiro nome</label>
+              <input asp-for="@Model.Nome" type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Informe um nome válido.
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Sobrenome</label>
+              <input asp-for="@Model.Sobrenome" type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Informe um sobrenome válido.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="username" class="form-label">CPF:</label>
+              <div class="input-group has-validation">
+                <input asp-for="@Model.CPF" type="text" class="form-control" id="username" placeholder="000.000.000-00" required="">
+              <div class="invalid-feedback">
+                  CPF é requerido.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Email <span class="text-muted">(Opicional)</span></label>
+              <input asp-for="@Model.Email" type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Por favor, informe um endereço de e-mail válido.
+              </div>
+            </div>
+
+          <hr class="my-4">
+
+          <div class="form-check">
+            <input asp-for="@Model.Deficiencia" type="checkbox" class="form-check-input" id="same-address">
+            <label class="form-check-label" for="same-address">Possuo deficiência física</label>
+          </div>
+
+          <div class="form-check">
+            <input asp-for="@Model.NecessidadesEspeciais" type="checkbox" class="form-check-input" id="save-info">
+            <label class="form-check-label" for="save-info">Possuo outras necessidades especiais</label>
+          </div>
+		  
+		  <hr class="my-4">
+          <h4 class="mb-3">Sexo</h4>
+
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+              <label class="form-check-label" for="credit">Masculino</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+              <label class="form-check-label" for="debit">Feminino</label>
+            </div>
+          </div>
+		  
+		  <hr class="my-4">
+			<h4 class="mb-3">Endereço</h4>
+			
+            <div class="col-12">
+              <label for="address" class="form-label">Endereço</label>
+              <input type="text" class="form-control" id="address" placeholder="Rua Bahia, 1234" required="">
+              <div class="invalid-feedback">
+                Por favor, informe seu endereço.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address2" class="form-label">Endereço 2 <span class="text-muted">(Opcional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Rua Henrique Pegoli, 1125">
+            </div>
+			
+			<div class="col-md-4">
+              <label for="state" class="form-label">Estado</label>
+              <select class="form-select" id="state" required="">
+                <option value="">Selecione...</option>
+                <option value="SP">São Paulo</option>
+				<option value="RJ">Rio de Janeiro</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor, selecione um estado.
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="country" class="form-label">Cidade</label>
+              <select class="form-select" id="country" required="">
+                <option value="">Selecione...</option>
+                <option value="Campinas">Campinas</option>
+				<option value="Valinhos">Valinhos</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor, escolha uma cidade.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="zip" class="form-label">CEP:</label>
+              <input type="text" class="form-control" id="zip" placeholder="00000-000" required="">
+              <div class="invalid-feedback">
+                O campo CEP é requerido.
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Confirmar cadastro</button>
+        </form>
+      </div>
+    </div>
