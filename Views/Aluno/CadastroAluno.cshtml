@@ -66,12 +66,12 @@
 
           <div class="my-3">
             <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-              <label class="form-check-label" for="credit">Masculino</label>
+              <input asp-for="@Model.Sexo" id="masculino" name="sexo" type="radio" class="form-check-input" checked="" required="">
+              <label class="form-check-label" for="masculino">Masculino</label>
             </div>
             <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-              <label class="form-check-label" for="debit">Feminino</label>
+              <input asp-for="@Model.Sexo" id="feminino" name="sexo" type="radio" class="form-check-input" required="">
+              <label class="form-check-label" for="feminino">Feminino</label>
             </div>
           </div>
 		  
