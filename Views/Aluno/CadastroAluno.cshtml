@@ -1,4 +1,4 @@
-@model WebAlunos.Models.AlunoModel
+@model WebAlunos.ViewModels.AlunoViewModel
 
 @{
     ViewData["Title"] = "Cadastro de alunos";
@@ -68,11 +68,11 @@
 
           <div class="my-3">
             <div class="form-check">
-              <input asp-for="@Model.Sexo" id="masculino" name="sexo" type="radio" class="form-check-input" checked="" required="">
+              <input asp-for="@Model.Sexo" id="masculino" name="sexo" type="radio" value="M" class="form-check-input" checked="" required="">
               <label class="form-check-label" for="masculino">Masculino</label>
             </div>
             <div class="form-check">
-              <input asp-for="@Model.Sexo" id="feminino" name="sexo" type="radio" class="form-check-input" required="">
+              <input asp-for="@Model.Sexo" id="feminino" name="sexo" type="radio" value="F" class="form-check-input" required="">
               <label class="form-check-label" for="feminino">Feminino</label>
             </div>
           </div>

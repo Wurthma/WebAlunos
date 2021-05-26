@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebAlunos.Data;
 using WebAlunos.Models;
+using WebAlunos.ViewModels;
 
 namespace WebAlunos.Controllers
 {
@@ -27,16 +28,18 @@ namespace WebAlunos.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastroAluno(AlunoModel model)
+        public IActionResult CadastroAluno(AlunoViewModel alunoVw)
         {
             if(ModelState.IsValid)
             {
-                _dbContext.Add(model);
+                AlunoModel alunoModel = (AlunoModel)alunoVw; //Também pode ser feito utilizando autoMapper
+                
+                _dbContext.Add(alunoModel);
                 _dbContext.SaveChanges();
             }
             else
             {
-                return View(model);
+                return View(alunoVw);
             }
             
             return View();
